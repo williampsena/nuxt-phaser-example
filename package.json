@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-phaser-example",
+  "description": "A nuxt phaser example",
+  "version": "2.10.2",
+  "private": true,
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "0.2.4",
+    "@nuxtjs/axios": "5.8.0",
+    "nuxt": "2.10.2",
+    "nuxt-property-decorator": "2.5.0",
+    "phaser": "^3.20.1",
+    "vuex-class": "0.3.2"
+  },
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^0.3.4",
+    "@nuxt/typescript-build": "0.3.4"
+  }
+}

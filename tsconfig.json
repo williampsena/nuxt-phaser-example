@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": [
+            "es6",
+            "es7",
+            "dom",
+            "scripthost"
+        ],
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "noEmit": true,
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "paths": {
+            "~/*": [
+                "./*"
+            ]
+        },
+        "typeRoots": [
+            "./typings",
+            "./node_modules/@types",
+            "./node_modules/phaser/types",
+        ],
+        "types": [
+            "@nuxt/types",
+            "@nuxtjs/axios",
+            "phaser",
+        ]
+    }
+}
