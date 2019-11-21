@@ -2,10 +2,10 @@ import 'phaser'
 import Vue from 'vue'
 import { run } from '~/game/game'
 
-type StartPhaserEvent = () => Phaser.Game
+export type StartPhaserEvent = () => Phaser.Game
 
 declare module 'vue/types/vue' {
-    interface Vue {
+    export interface Vue {
         $startPhaser: StartPhaserEvent
     }
 }

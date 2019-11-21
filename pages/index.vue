@@ -1,3 +1,4 @@
+
 <template>
     <section>
         <h1 class="header">Nuxt Phaser Game</h1>
@@ -5,7 +6,13 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue"
+import Component from "vue-class-component"
+
+@Component({
+  name: 'IndexPage'
+})
+export default class IndexPage extends Vue  {
   mounted() {
     console.log('mounted component')
     const game = this.$startPhaser()

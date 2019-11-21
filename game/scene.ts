@@ -1,15 +1,35 @@
+import { Physics, Types } from 'phaser'
+const ship = require('~/assets/ship.png')
+
 export class BootScene extends Phaser.Scene {
+    player!: Physics.Arcade.Sprite
+    cursors!: Types.Input.Keyboard.CursorKeys
+
     preload() {
-        console.log('preload')
+        this.load.image('ship', ship)
     }
+
     create() {
-        const graphics = this.add.graphics()
-        const circle = new Phaser.Geom.Circle(100, 100, 100)
-        graphics.fillStyle(0x0000ff)
-        graphics.fillCircleShape(circle)
-        console.log('created')
+        this.physics.world.gravity.y = 60
+
+        this.player = this.physics.add.sprite(100, 450, 'ship')
+        this.player.setBounce(0.2)
+        this.player.setCollideWorldBounds(true)
+
+        this.cursors = this.input.keyboard.createCursorKeys()
     }
+
     update() {
-        console.log('update')
+        if (this.cursors!.left!.isDown) {
+            this.player.setVelocityX(-160)
+        } else if (this.cursors!.right!.isDown) {
+            this.player.setVelocityX(160)
+        } else {
+            this.player.setVelocityX(0)
+        }
+
+        if (this.cursors!.up!.isDown && this.player.body.touching.down) {
+            this.player.setVelocityY(-330)
+        }
     }
 }

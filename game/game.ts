@@ -6,6 +6,12 @@ export const getPaserConfig = () =>
         width: 800,
         height: 600,
         scene: [BootScene],
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 150 },
+            },
+        },
     } as Phaser.Types.Core.GameConfig)
 
 export class Game extends Phaser.Game {
