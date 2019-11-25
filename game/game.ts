@@ -1,25 +1,20 @@
 import { BootScene } from './scene'
 
-export const getPaserConfig = () =>
-    ({
+const createGame = (config: Phaser.Types.Core.GameConfig = {}) =>
+    new Phaser.Game({
+        parent: 'phaser',
         type: Phaser.AUTO,
-        width: 800,
-        height: 600,
+        width: 220,
+        height: 200,
         scene: [BootScene],
+        backgroundColor: '#bdae58',
         physics: {
             default: 'arcade',
             arcade: {
                 gravity: { y: 150 },
             },
         },
-    } as Phaser.Types.Core.GameConfig)
+        ...config,
+    })
 
-export class Game extends Phaser.Game {
-    constructor(config: Phaser.Types.Core.GameConfig) {
-        super(config)
-    }
-}
-
-export const run = () => new Game(getPaserConfig())
-
-export default run
+export default createGame

@@ -21,6 +21,8 @@ export default {
     build: {},
     buildModules: ['@nuxt/typescript-build'],
     modules: ['@nuxtjs/axios'],
-    plugins: [{ src: '~/plugins/phaser', mode: 'client' }],
+    plugins: [
+        { src: 'node_modules/nuxtjs-phaser', mode: 'client' }
+    ],
     axios: {},
 }
