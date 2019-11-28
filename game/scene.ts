@@ -1,8 +1,10 @@
 import { Physics, Types } from 'phaser'
+import TuxPlayer from './player'
 const tux = require('~/assets/tux.png')
+const tuxJSON = require('~/assets/tux.json')
 
 export class BootScene extends Phaser.Scene {
-    player!: Physics.Arcade.Sprite
+    player!: TuxPlayer
     cursors!: Types.Input.Keyboard.CursorKeys
 
     constructor(config: string | Phaser.Types.Scenes.SettingsConfig) {
@@ -10,72 +12,25 @@ export class BootScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.spritesheet('tux', tux, {
-            frameWidth: 16,
-            frameHeight: 16,
-            spacing: 0
-        })
+        this.load.atlas('tux', tux, tuxJSON)
     }
 
     create() {
         this.physics.world.gravity.y = 60
-
-        this.player = this.physics.add.sprite(100, 10, 'tux').setScale(3)
-        this.player.setBounce(0.2)
-        this.player.setCollideWorldBounds(true)
-
-        this.anims.create({
-            key: 'idle',
-            frames: [ { key: 'tux', frame: 1 }, { key: 'tux', frame: 4 } ],
-            frameRate: 10,
-            repeat: -1,
-        })
-
-        this.anims.create({
-            key: 'walk',
-            frames: this.anims.generateFrameNumbers('tux', {
-                start: 7,
-                end: 12,
-            }),
-            frameRate: 10,
-            repeat: 0,
-        })
-
-        this.anims.create({
-            key: 'jump',
-            frames: this.anims.generateFrameNumbers('tux', {
-                start: 18,
-                end: 23,
-            }),
-            frameRate: 10,
-            repeat: 0,
-        })
-
-
-        this.player.anims.play('idle', true)
-
         this.cursors = this.input.keyboard.createCursorKeys()
+        this.player = new TuxPlayer(this, 100, 10)
     }
 
     update() {
-        if (this.cursors!.left!.isDown) {
-            this.player.setVelocityX(-100)
-            this.player.anims.play('walk')
-            this.player.flipX = true
-        } else if (this.cursors!.right!.isDown) {
-            this.player.setVelocityX(100)
-            this.player.anims.play('walk')
-            this.player.flipX = false
-        } else if (this.cursors!.up!.isDown) {
-            this.player.setVelocityY(-50)
-            this.player.anims.play('jump')
-        } else {
-            this.player.setVelocityX(0)
-            this.player.anims.play('idle')
-        }
+        const { cursors, player } = this
 
-        if (this.cursors!.up!.isDown && this.player.body.touching.down) {
-            this.player.setVelocityY(-330)
-        }
+        if (cursors!.left!.isDown) return player.walkLeft()
+        else if (cursors!.right!.isDown) return player.walkRight()
+        else if (cursors!.up!.isDown) return player.jump()
+
+        if (cursors!.up!.isDown && player.body.touching.down)
+            player.setVelocityY(-330)
+            
+        player.idle()
     }
 }
