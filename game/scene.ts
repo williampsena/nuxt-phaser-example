@@ -1,4 +1,4 @@
-import { Physics, Types } from 'phaser'
+import { Types } from 'phaser'
 import TuxPlayer from './player'
 const tux = require('~/assets/tux.png')
 const tuxJSON = require('~/assets/tux.json')
@@ -7,8 +7,11 @@ export class BootScene extends Phaser.Scene {
     player!: TuxPlayer
     cursors!: Types.Input.Keyboard.CursorKeys
 
-    constructor(config: string | Phaser.Types.Scenes.SettingsConfig) {
-        super(config)
+    constructor(config: Phaser.Types.Scenes.SettingsConfig) {
+        super({
+            ...config,
+            key: 'default',
+        })
     }
 
     preload() {
@@ -30,7 +33,7 @@ export class BootScene extends Phaser.Scene {
 
         if (cursors!.up!.isDown && player.body.touching.down)
             player.setVelocityY(-330)
-            
+
         player.idle()
     }
 }

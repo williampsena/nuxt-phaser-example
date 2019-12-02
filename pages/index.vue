@@ -20,7 +20,10 @@
                         <div class="horizontal"></div>
                     </div>
                     <div class="btn-AB"></div>
-                    <div class="btn-start-select"></div>
+                    <div class="btn-start-select">
+                        <div class='pause-button' v-on:click="pause">pause</div>
+                        <div class='resume-button' v-on:click="resume">resume</div>
+                    </div>
                 </div>
                 <div class="speakers"></div>
                 <div class="on-off">&lt; off-on &gt;</div>
@@ -51,20 +54,42 @@ export default Vue.extend({
             createGame: undefined,
         }
     },
+    methods: {
+        pause() {
+            this.$phaser!.eventEmitter!.emit('pause', 'default')
+        },
+        resume() {
+            this.$phaser!.eventEmitter!.emit('resume', 'default')
+        },
+    },
     async mounted() {
         this.createGame = await getGame()
-    }
+    },
 })
 </script>
 
 <style scoped>
 .screen {
-    position: relative
+    position: relative;
 }
 
 #phaser {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.pause-button {
+    position: absolute;
+    left: 11px;
+    top: -2px;
+    font-size: 0.7rem;
+}
+
+.resume-button {
+    position: absolute;
+    left: 65px;
+    top: 25px;
+    font-size: 0.7rem;
 }
 </style>
