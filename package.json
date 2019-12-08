@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "5.8.0",
     "nuxt": "2.10.2",
     "nuxt-property-decorator": "2.5.0",
-    "nuxtjs-phaser": "^1.0.14",
+    "nuxtjs-phaser": "^1.0.16",
     "phaser": "^3.21.0",
     "vue-class-component": "^7.1.0",
     "vuex-class": "0.3.2"

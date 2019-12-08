@@ -16,13 +16,17 @@
                 </div>
                 <div class="controls-cont">
                     <div class="btn-direction">
-                        <div class="vertical"></div>
+                        <div class="vertical">
+                            <div class="jump-button" v-on:click="jump"></div>
+                        </div>
+                        <div class="left-button" v-on:click="walkLeft"></div>
+                        <div class="right-button" v-on:click="walkRight"></div>
                         <div class="horizontal"></div>
                     </div>
                     <div class="btn-AB"></div>
                     <div class="btn-start-select">
-                        <div class='pause-button' v-on:click="pause">pause</div>
-                        <div class='resume-button' v-on:click="resume">resume</div>
+                        <div class="pause-button" v-on:click="pause">pause</div>
+                        <div class="resume-button" v-on:click="resume">resume</div>
                     </div>
                 </div>
                 <div class="speakers"></div>
@@ -46,6 +50,11 @@ declare interface IndexPageData {
     createGame?: () => Phaser.Game
 }
 
+const setPhaserFocus = () => {
+    const phaser = document.getElementById('phaser')
+    if (phaser) phaser.focus()
+}
+
 export default Vue.extend({
     name: 'IndexPage',
     components: { PhaserGame },
@@ -55,15 +64,28 @@ export default Vue.extend({
         }
     },
     methods: {
+        emitPhaserEvent(eventName: string) {
+            this.$phaser!.eventEmitter!.emit(eventName, 'default')
+        },
+        jump() {
+            this.emitPhaserEvent('jump')
+        },
+        walkLeft() {
+            this.emitPhaserEvent('walkLeft')
+        },
+        walkRight() {
+            this.emitPhaserEvent('walkRight')
+        },
         pause() {
-            this.$phaser!.eventEmitter!.emit('pause', 'default')
+            this.emitPhaserEvent('pause')
         },
         resume() {
-            this.$phaser!.eventEmitter!.emit('resume', 'default')
+            this.emitPhaserEvent('resume')
         },
     },
     async mounted() {
         this.createGame = await getGame()
+        this.$nextTick(() => setPhaserFocus())
     },
 })
 </script>
@@ -91,5 +113,31 @@ export default Vue.extend({
     left: 65px;
     top: 25px;
     font-size: 0.7rem;
+}
+
+.jump-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.9rem;
+    height: 1.9rem;
+}
+
+.left-button {
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    left: 0;
+    width: 1.9rem;
+    height: 1.9rem;
+}
+
+.right-button {
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    left: 4rem;
+    width: 1.9rem;
+    height: 1.9rem;
 }
 </style>

@@ -22,6 +22,25 @@ export class BootScene extends Phaser.Scene {
         this.physics.world.gravity.y = 60
         this.cursors = this.input.keyboard.createCursorKeys()
         this.player = new TuxPlayer(this, 100, 10)
+
+        PhaserNuxt.eventEmitter!.addListener('jump', this.jump, this)
+        PhaserNuxt.eventEmitter!.addListener('walkLeft', this.walkLeft, this)
+        PhaserNuxt.eventEmitter!.addListener('walkRight', this.walkRight, this)
+    }
+
+    jump() {
+        this.cursors.up!.isDown = true
+        setTimeout(() => this.cursors.up!.isDown = false, 100)
+    }
+
+    walkLeft() {
+        this.cursors.left!.isDown = true
+        setTimeout(() => this.cursors.left!.isDown = false, 100)
+    }
+
+    walkRight() {
+        this.cursors.right!.isDown = true
+        setTimeout(() => this.cursors.right!.isDown = false, 100)
     }
 
     update() {

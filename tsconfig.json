@@ -1,4 +1,7 @@
 {
+    "include": [
+        "**/*.ts"
+    ],
     "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
@@ -23,9 +26,7 @@
             ]
         },
         "typeRoots": [
-            "./typings",
-            "./node_modules/@types",
-            "./node_modules/phaser/types",
+            "nuxtjs-phaser/types"
         ],
         "types": [
             "@nuxt/types",
