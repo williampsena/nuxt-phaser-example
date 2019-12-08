@@ -2,10 +2,10 @@
 
 > A nuxt phaser example using **[nuxtjs-phaser](https://www.npmjs.com/package/nuxtjs-phaser)** plugin.
 
-In this example you'll see a simple integration between Nuxt and phaser, using a community Nuxt plugin.
-Some key binds are showing the integration like a virtual gamepad.
+In this example you'll see a simple integration between Nuxt and Phaser, using a community Nuxt plugin.
+Some key binds have the intention to show integrations like a virtual gamepad.
 
-Why Nuxt?
+## Why Nuxt?
 
 Including Nuxt in your game Bundle, you can avoid problems with build javascript/typescript , besides use plugins like Adsense, Google Tag Manager, Workbox and other things in Nuxt ecosystem.
 
