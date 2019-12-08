@@ -1,6 +1,15 @@
-# nuxt-phaser-example
+# Nuxt Phaser Example
 
-> A nuxt phaser example
+> A nuxt phaser example using **[nuxtjs-phaser](https://www.npmjs.com/package/nuxtjs-phaser)** plugin.
+
+In this example you'll see a simple integration between Nuxt and phaser, using a community Nuxt plugin.
+Some key binds are showing the integration like a virtual gamepad.
+
+Why Nuxt?
+
+Including Nuxt in your game Bundle, you can avoid problems with build javascript/typescript , besides use plugins like Adsense, Google Tag Manager, Workbox and other things in Nuxt ecosystem.
+
+So the nuxtjs-phaser helps you to keep focus in your game.
 
 ## Build Setup
 
@@ -19,8 +28,11 @@ $ npm start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+## Live (powered by Surge.sh)
+
+[Demo](https://nuxtjs-phaser.surge.sh/)
 
 ## References
 
 [Gameboy CSS](https://github.com/baumannzone/gameboy-css)
+[Tux Sprite](https://opengameart.org/content/tux-classic-hero-style)
