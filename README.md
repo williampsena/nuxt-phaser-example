@@ -34,5 +34,5 @@ $ npm run generate
 
 ## References
 
-[Gameboy CSS](https://github.com/baumannzone/gameboy-css)
-[Tux Sprite](https://opengameart.org/content/tux-classic-hero-style)
+- [Gameboy CSS](https://github.com/baumannzone/gameboy-css)
+- [Tux Sprite](https://opengameart.org/content/tux-classic-hero-style)
