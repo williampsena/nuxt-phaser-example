@@ -83,7 +83,7 @@ export default {
     },
     methods: {
         emitPhaserEvent(eventName: string) {
-            this.$phaser!.eventEmitter!.emit(eventName, 'default')
+            this.$phaser?.eventEmitter?.emit(eventName, 'default')
         },
         jump() {
             this.emitPhaserEvent('jump')
