@@ -1,6 +1,6 @@
 import { BootScene } from './scene'
 
-const createGame = (config: Phaser.Types.Core.GameConfig = {}) =>
+export const createGame = (config: Phaser.Types.Core.GameConfig = {}) =>
     new Phaser.Game({
         parent: 'phaser',
         type: Phaser.AUTO,
@@ -19,5 +19,3 @@ const createGame = (config: Phaser.Types.Core.GameConfig = {}) =>
         },
         ...config,
     })
-
-export default createGame

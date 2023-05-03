@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Pretendo';
-  src: url("/staticfont/Pretendo.ttf") format('truetype'), url("/static/font/Pretendo.woff") format('woff'), url("/static/font/Pretendo.woff2") format('woff2');
+  src: url("/static/font/Pretendo.ttf") format('truetype'), url("/static/font/Pretendo.woff") format('woff'), url("/static/font/Pretendo.woff2") format('woff2');
   font-weight: normal;
   font-style: normal;
 }

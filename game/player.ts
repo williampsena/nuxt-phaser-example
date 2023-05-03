@@ -1,4 +1,5 @@
-export default class TuxPlayer extends Phaser.Physics.Arcade.Sprite {
+import Phaser from 'phaser'
+export class TuxPlayer extends Phaser.Physics.Arcade.Sprite {
     jumpTimer = 0
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
@@ -69,7 +70,7 @@ export default class TuxPlayer extends Phaser.Physics.Arcade.Sprite {
     }
 
     isJumping = () =>
-        !this.body.touching.down && this.scene.time.now < this.jumpTimer
+        this.body?.touching.down && this.scene.time.now < this.jumpTimer
 
     jump() {
         if (this.isJumping()) return

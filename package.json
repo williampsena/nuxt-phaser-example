@@ -9,24 +9,21 @@
     "semi": false,
     "singleQuote": true
   },
-  "dependencies": {
-    "@nuxt/typescript-runtime": "0.2.4",
-    "@nuxtjs/axios": "5.8.0",
-    "nuxt": "2.10.2",
-    "nuxt-property-decorator": "2.5.0",
-    "nuxtjs-phaser": "^1.0.16",
-    "phaser": "^3.21.0",
-    "vue-class-component": "^7.1.0",
-    "vuex-class": "0.3.2"
-  },
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "node ./tasks/deploy.js"
   },
   "devDependencies": {
-    "@nuxt/types": "^0.3.4",
-    "@nuxt/typescript-build": "0.3.4"
+    "@nuxt/types": "^2.16.3",
+    "@types/node": "^18.16.3",
+    "@types/shelljs": "^0.8.12",
+    "nuxt": "^3.4.3",
+    "nuxtjs-phaser": "^3.0.0",
+    "phaser": "^3.60.0",
+    "shelljs": "^0.8.5"
   }
 }
