@@ -25,9 +25,9 @@ export class BootScene extends Phaser.Scene {
         this.cursors = this.input!.keyboard!.createCursorKeys()
         this.player = new TuxPlayer(this, 100, 10)
 
-        VuePhaser.eventEmitter!.addListener('jump', this.jump, this)
-        VuePhaser.eventEmitter!.addListener('walkLeft', this.walkLeft, this)
-        VuePhaser.eventEmitter!.addListener('walkRight', this.walkRight, this)
+        NuxtPhaser.eventEmitter!.addListener('jump', this.jump, this)
+        NuxtPhaser.eventEmitter!.addListener('walkLeft', this.walkLeft, this)
+        NuxtPhaser.eventEmitter!.addListener('walkRight', this.walkRight, this)
     }
 
     jump() {
