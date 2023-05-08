@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import PhaserGame from 'nuxtjs-phaser/dist/phaserGame.vue'
+import PhaserGame from 'nuxtjs-phaser/phaserGame.vue'
 
 async function getGame() {
     const { createGame } = await import('~/game/game')
