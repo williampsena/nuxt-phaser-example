@@ -2,7 +2,7 @@ export default defineNuxtConfig({
     ssr: false,
     app: {
         head: {
-            title: 'nuxt-phaser-example',
+            title: 'Nuxt App with Phaser powered by nuxtjs-phaser package',
         },
     },
     css: ['~/assets/css/main.css'],
